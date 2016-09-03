@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         
         userDefaults.registerDefaults([
-            TipKeys.minimumTipKey: 0.10,
+            TipKeys.smallTipKey: 0.10,
             TipKeys.mediumTipKey: 0.15,
             TipKeys.largeTipKey: 0.18,
             defaultTipKey: 1

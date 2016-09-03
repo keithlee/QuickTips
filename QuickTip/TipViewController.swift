@@ -20,18 +20,18 @@ class TipViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.billField.becomeFirstResponder()
+        billField.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.tipSegmentedControl!.setTitle("\(self.userDefaults.doubleForKey(TipKeys.minimumTipKey)*100)%", forSegmentAtIndex: 0)
-        self.tipSegmentedControl!.setTitle("\(self.userDefaults.doubleForKey(TipKeys.mediumTipKey)*100)%", forSegmentAtIndex: 1)
-        self.tipSegmentedControl!.setTitle("\(self.userDefaults.doubleForKey(TipKeys.largeTipKey)*100)%", forSegmentAtIndex: 2)
+        tipSegmentedControl!.setTitle("\(userDefaults.doubleForKey(TipKeys.smallTipKey)*100)%", forSegmentAtIndex: 0)
+        tipSegmentedControl!.setTitle("\(userDefaults.doubleForKey(TipKeys.mediumTipKey)*100)%", forSegmentAtIndex: 1)
+        tipSegmentedControl!.setTitle("\(userDefaults.doubleForKey(TipKeys.largeTipKey)*100)%", forSegmentAtIndex: 2)
         
-        self.tipSegmentedControl!.selectedSegmentIndex = self.userDefaults.integerForKey(defaultTipKey)
-        self.calculateTip(self)
+        tipSegmentedControl!.selectedSegmentIndex = userDefaults.integerForKey(defaultTipKey)
+        calculateTip(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,46 +41,46 @@ class TipViewController: UIViewController {
     
     var billAmount: Double {
         get {
-            return Double(self.billField.text!) ?? 0
+            return Double(billField.text!) ?? 0
         }
         set {
-            self.billField.text = "$\(String(format: "%.2f", newValue))"
+            billField.text = "$\(String(format: "%.2f", newValue))"
         }
     }
     
     var total: Double {
         get {
-            return Double(self.totalLabel.text!) ?? 0
+            return Double(totalLabel.text!) ?? 0
         }
         set {
-            self.totalLabel.text = "$\(String(format: "%.2f", newValue))"
+            totalLabel.text = "$\(String(format: "%.2f", newValue))"
         }
     }
     
     var tipAmount: Double {
         get {
-            return Double(self.tipLabel.text!) ?? 0
+            return Double(tipLabel.text!) ?? 0
         }
         set {
-            self.tipLabel.text = "$\(String(format: "%.2f", newValue))"
+            tipLabel.text = "$\(String(format: "%.2f", newValue))"
         }
     }
    
     @IBAction func calculateTip(sender: AnyObject) {
         var tipPercent: Double
-        switch self.tipSegmentedControl.selectedSegmentIndex {
-            case 0: tipPercent = self.userDefaults.doubleForKey(TipKeys.minimumTipKey)
-            case 1: tipPercent = self.userDefaults.doubleForKey(TipKeys.mediumTipKey)
-            case 2: tipPercent = self.userDefaults.doubleForKey(TipKeys.largeTipKey)
-            default: tipPercent = self.userDefaults.doubleForKey(TipKeys.minimumTipKey)
+        switch tipSegmentedControl.selectedSegmentIndex {
+            case 0: tipPercent = userDefaults.doubleForKey(TipKeys.smallTipKey)
+            case 1: tipPercent = userDefaults.doubleForKey(TipKeys.mediumTipKey)
+            case 2: tipPercent = userDefaults.doubleForKey(TipKeys.largeTipKey)
+            default: tipPercent = userDefaults.doubleForKey(TipKeys.smallTipKey)
         }
         
-        self.tipAmount = billAmount * tipPercent
-        self.total = (billAmount * tipPercent) + billAmount
+        tipAmount = billAmount * tipPercent
+        total = (billAmount * tipPercent) + billAmount
     }
 
     @IBAction func dismissKeyboard(sender: AnyObject) {
-        self.resignFirstResponder()
+        resignFirstResponder()
     }
     /*
     // MARK: - Navigation
