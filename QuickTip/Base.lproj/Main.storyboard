@@ -28,9 +28,13 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNH-cv-HLt">
                                 <rect key="frame" x="16" y="157" width="120.5" height="21"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="AU9-El-sz0" appends="YES" id="7Fz-rc-fxb"/>
+                                </connections>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcz-km-yCc">
                                 <rect key="frame" x="201" y="157" width="153.5" height="21"/>
@@ -53,7 +57,7 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zXY-1S-WGP">
                                 <rect key="frame" x="16" y="269" width="343" height="29"/>
                                 <segments>
-                                    <segment title="Minimum"/>
+                                    <segment title="Small"/>
                                     <segment title="Medium"/>
                                     <segment title="Large"/>
                                 </segments>
@@ -245,7 +249,7 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FAe-sC-fgO">
                                 <rect key="frame" x="20" y="291" width="284" height="29"/>
                                 <segments>
-                                    <segment title="Minimum"/>
+                                    <segment title="Small"/>
                                     <segment title="Medium"/>
                                     <segment title="Large"/>
                                 </segments>
@@ -261,6 +265,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6gw-9a-kvC" firstAttribute="leading" secondItem="6tP-ki-MlE" secondAttribute="trailing" constant="13" id="01L-r2-nxh"/>
                             <constraint firstItem="OsE-UE-jEu" firstAttribute="leading" secondItem="IyL-lE-88Q" secondAttribute="trailing" constant="66" id="6A6-MG-4vK"/>
@@ -303,6 +308,9 @@
                                 <exclude reference="u5s-ki-f8x"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ZUc-PT-Yvt" appends="YES" id="EwG-5J-hre"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -313,6 +321,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XVP-wv-IUp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ZUc-PT-Yvt">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="QPY-st-yvo" id="IRf-yw-JjW"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1702" y="355"/>
         </scene>

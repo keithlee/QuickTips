@@ -81,6 +81,10 @@ class SettingsViewController: UIViewController {
         userDefaults.setInteger(defaultTipControls.selectedSegmentIndex, forKey: defaultTipKey)
         userDefaults.synchronize()
     }
+    
+    @IBAction func dismissKeyboard(sender: AnyObject) {
+        view.endEditing(true)
+    }
     /*
     // MARK: - Navigation
 

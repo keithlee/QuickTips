@@ -80,7 +80,7 @@ class TipViewController: UIViewController {
     }
 
     @IBAction func dismissKeyboard(sender: AnyObject) {
-        resignFirstResponder()
+        billField.resignFirstResponder()
     }
     /*
     // MARK: - Navigation
