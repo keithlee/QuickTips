@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             TipKeys.largeTipKey: 0.18,
             defaultTipKey: 1
         ])
+        userDefaults.synchronize()
         
         return true
     }
