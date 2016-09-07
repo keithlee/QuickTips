@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		796136261D7F997400805C3F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796136251D7F997400805C3F /* PageViewController.swift */; };
 		79A0715A1D79436D0093416D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A071591D79436D0093416D /* AppDelegate.swift */; };
 		79A0715F1D79436D0093416D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79A0715D1D79436D0093416D /* Main.storyboard */; };
 		79A071611D79436D0093416D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79A071601D79436D0093416D /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		796136251D7F997400805C3F /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		79A071561D79436D0093416D /* QuickTip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickTip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79A071591D79436D0093416D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79A0715E1D79436D0093416D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				79A071591D79436D0093416D /* AppDelegate.swift */,
 				79BD98751D7A45A20034A58F /* Constants.swift */,
+				796136251D7F997400805C3F /* PageViewController.swift */,
 				79A071871D7947BE0093416D /* TipViewController.swift */,
 				79BD98731D7A1F2D0034A58F /* SettingsViewController.swift */,
 				79A0715D1D79436D0093416D /* Main.storyboard */,
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79A071881D7947BE0093416D /* TipViewController.swift in Sources */,
+				796136261D7F997400805C3F /* PageViewController.swift in Sources */,
 				79A0715A1D79436D0093416D /* AppDelegate.swift in Sources */,
 				79BD98741D7A1F2D0034A58F /* SettingsViewController.swift in Sources */,
 				79BD98761D7A45A20034A58F /* Constants.swift in Sources */,

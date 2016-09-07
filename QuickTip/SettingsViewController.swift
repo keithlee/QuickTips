@@ -25,6 +25,11 @@ class SettingsViewController: UIViewController {
         largeTipValue = userDefaults.doubleForKey(TipKeys.largeTipKey) * 100
         defaultTipControls.selectedSegmentIndex = userDefaults.integerForKey(defaultTipKey)
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

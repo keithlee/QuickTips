@@ -13,5 +13,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "TipViewController.viewDidAppear(Bool) -&gt; ():TipViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "billField.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

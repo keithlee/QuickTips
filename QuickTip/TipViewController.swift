@@ -20,18 +20,22 @@ class TipViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        billField.becomeFirstResponder()
+//        billField.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        tipSegmentedControl!.setTitle("\(userDefaults.doubleForKey(TipKeys.smallTipKey)*100)%", forSegmentAtIndex: 0)
-        tipSegmentedControl!.setTitle("\(userDefaults.doubleForKey(TipKeys.mediumTipKey)*100)%", forSegmentAtIndex: 1)
-        tipSegmentedControl!.setTitle("\(userDefaults.doubleForKey(TipKeys.largeTipKey)*100)%", forSegmentAtIndex: 2)
+        print(billField.becomeFirstResponder())
+        print(billField.text)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        tipSegmentedControl!.selectedSegmentIndex = userDefaults.integerForKey(defaultTipKey)
-        calculateTip(self)
+//        UIView.animateWithDuration(0.5) { [_self = self] in
+//            _self.view.backgroundColor = UIColor.init(red: 117/255, green: 255/255, blue: 232/255, alpha: 1)
+//        }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,20 +71,12 @@ class TipViewController: UIViewController {
     }
    
     @IBAction func calculateTip(sender: AnyObject) {
-        var tipPercent: Double
-        switch tipSegmentedControl.selectedSegmentIndex {
-            case 0: tipPercent = userDefaults.doubleForKey(TipKeys.smallTipKey)
-            case 1: tipPercent = userDefaults.doubleForKey(TipKeys.mediumTipKey)
-            case 2: tipPercent = userDefaults.doubleForKey(TipKeys.largeTipKey)
-            default: tipPercent = userDefaults.doubleForKey(TipKeys.smallTipKey)
+//        var tipPercent: Double = 0
+//        tipAmount = billAmount * tipPercent
+//        total = (billAmount * tipPercent) + billAmount
+        UIView.animateWithDuration(1.0) { [_self = self] in
+            _self.view.backgroundColor = UIColor.init(red: 117/255, green: 255/255, blue: 232/255, alpha: 1)
         }
-        
-        tipAmount = billAmount * tipPercent
-        total = (billAmount * tipPercent) + billAmount
-    }
-
-    @IBAction func dismissKeyboard(sender: AnyObject) {
-        billField.resignFirstResponder()
     }
     /*
     // MARK: - Navigation
