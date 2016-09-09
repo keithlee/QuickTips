@@ -20,9 +20,9 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        smallTipValue = userDefaults.doubleForKey(TipKeys.smallTipKey) * 100
-        mediumTipValue = userDefaults.doubleForKey(TipKeys.mediumTipKey) * 100
-        largeTipValue = userDefaults.doubleForKey(TipKeys.largeTipKey) * 100
+        smallTipValue = userDefaults.doubleForKey(TipKeys.tipKey1) * 100
+        mediumTipValue = userDefaults.doubleForKey(TipKeys.tipKey2) * 100
+        largeTipValue = userDefaults.doubleForKey(TipKeys.tipKey3) * 100
         defaultTipControls.selectedSegmentIndex = userDefaults.integerForKey(defaultTipKey)
     }
     
@@ -67,17 +67,17 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func updateMinTip(sender: AnyObject) {
-        userDefaults.setDouble(smallTipValue / 100, forKey: TipKeys.smallTipKey)
+        userDefaults.setDouble(smallTipValue / 100, forKey: TipKeys.tipKey1)
         userDefaults.synchronize()
         defaultTipControls.setTitle("\(String(smallTipValue))%", forSegmentAtIndex: 0)
     }
     @IBAction func updateMediumTip(sender: AnyObject) {
-        userDefaults.setDouble(mediumTipValue / 100, forKey: TipKeys.mediumTipKey)
+        userDefaults.setDouble(mediumTipValue / 100, forKey: TipKeys.tipKey2)
         userDefaults.synchronize()
         defaultTipControls.setTitle("\(String(mediumTipValue))%", forSegmentAtIndex: 1)
     }
     @IBAction func updateLargeTip(sender: AnyObject) {
-        userDefaults.setDouble(largeTipValue / 100, forKey: TipKeys.largeTipKey)
+        userDefaults.setDouble(largeTipValue / 100, forKey: TipKeys.tipKey3)
         userDefaults.synchronize()
         defaultTipControls.setTitle("\(String(largeTipValue))%", forSegmentAtIndex: 2)
     }

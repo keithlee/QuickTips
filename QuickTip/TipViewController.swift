@@ -28,7 +28,6 @@ class TipViewController: UIViewController {
     @IBOutlet weak var totalLabel2: UILabel!
     @IBOutlet weak var totalLabel3: UILabel!
     
-    var userDefaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +37,10 @@ class TipViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-//        tipAmount = userDefaults.doubleForKey(defaultTipKey)
+        let userdefaults = NSUserDefaults.standardUserDefaults()
+        tipLabel1.text = "%\(Int(userdefaults.doubleForKey(TipKeys.tipKey1)*100))"
+        tipLabel2.text = "%\(Int(userdefaults.doubleForKey(TipKeys.tipKey2)*100))"
+        tipLabel3.text = "%\(Int(userdefaults.doubleForKey(TipKeys.tipKey3)*100))"
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,47 +48,87 @@ class TipViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-//    var billAmount: Double {
-//        get {
-//            return Double(billField.text!) ?? 0
-//        }
-//        set {
-//            billField.text = "$\(String(format: "%.2f", newValue))"
-//        }
-//    }
-//    
-//    var total: Double {
-//        get {
-//            return Double(totalLabel.text!) ?? 0
-//        }
-//        set {
-//            totalLabel.text = "$\(String(format: "%.2f", newValue))"
-//        }
-//    }
-//
-//    var tipAmount: Double {
-//        get {
-//            return Double(tipLabel.text!) ?? 0
-//        }
-//        set {
-//            tipLabel.text = "$\(String(format: "%.2f", newValue))"
-//        }
-//    }
+    var billAmount: Double {
+        get {
+            return Double(billField.text!) ?? 0
+        }
+        set {
+            billField.text = "$\(String(format: "%.2f", newValue))"
+        }
+    }
+
+    var total1: Double {
+        get {
+            return Double(totalLabel1.text!) ?? 0
+        }
+        set {
+            totalLabel1.text = "$\(String(format: "%.2f", newValue))"
+        }
+    }
+    var total2: Double {
+        get {
+            return Double(totalLabel2.text!) ?? 0
+        }
+        set {
+            totalLabel2.text = "$\(String(format: "%.2f", newValue))"
+        }
+    }
+    var total3: Double {
+        get {
+            return Double(totalLabel3.text!) ?? 0
+        }
+        set {
+            totalLabel3.text = "$\(String(format: "%.2f", newValue))"
+        }
+    }
+    
+    var tipAmount1: Double {
+        get {
+            return Double(tipLabel1.text!) ?? 0
+        }
+        set {
+            tipAmountLabel1.text = "(\(String(format: "%.2f", newValue)))"
+        }
+    }
+    var tipAmount2: Double {
+        get {
+            return Double(tipLabel2.text!) ?? 0
+        }
+        set {
+            tipAmountLabel2.text = "(\(String(format: "%.2f", newValue)))"
+        }
+    }
+    var tipAmount3: Double {
+        get {
+            return Double(tipLabel3.text!) ?? 0
+        }
+        set {
+            tipAmountLabel3.text = "(\(String(format: "%.2f", newValue)))"
+        }
+    }
    
     @IBAction func calculateTip(sender: AnyObject) {
-//        let tipPercent: Double = 0
-//        tipAmount = billAmount * tipPercent
-//        total = (billAmount * tipPercent) + billAmount
         UIView.animateWithDuration(1.0) { [_self = self] in
             _self.mainView.backgroundColor = UIColor.init(red: 117/255, green: 255/255, blue: 232/255, alpha: 1)
         }
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let tipPercent1 = userDefaults.doubleForKey(TipKeys.tipKey1)
+        let tipPercent2 = userDefaults.doubleForKey(TipKeys.tipKey2)
+        let tipPercent3 = userDefaults.doubleForKey(TipKeys.tipKey3)
+        
+        tipAmount1 = billAmount * tipPercent1
+        tipAmount2 = billAmount * tipPercent2
+        tipAmount3 = billAmount * tipPercent3
+        total1 = (billAmount * tipPercent1) + billAmount
+        total2 = (billAmount * tipPercent2) + billAmount
+        total3 = (billAmount * tipPercent3) + billAmount
+        
     }
     
     @IBAction func tipView1Pan(recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translationInView(self.view)
         var percent = Int((tipLabel1.text?.stringByReplacingOccurrencesOfString("%", withString: ""))!)!
         percent -= Int(translation.x / 2)
-//        print(translation.y)
         print(translation.x)
         tipLabel1.text = "%\(percent)"
         

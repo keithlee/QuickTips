@@ -10,9 +10,9 @@ import Foundation
 
 
 struct TipKeys {
-    static let smallTipKey = "smallTip"
-    static let mediumTipKey = "mediumTip"
-    static let largeTipKey = "largeTip"
+    static let tipKey1 = "tip1"
+    static let tipKey2 = "tip2"
+    static let tipKey3 = "tip3"
 }
 
 let defaultTipKey = "defaultTip"
