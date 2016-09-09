@@ -83,7 +83,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func selectDefaultTip(sender: AnyObject) {
-        userDefaults.setInteger(defaultTipControls.selectedSegmentIndex, forKey: defaultTipKey)
+        userDefaults.setDouble(Double(defaultTipControls.titleForSegmentAtIndex(defaultTipControls.selectedSegmentIndex)!)! / 100, forKey: defaultTipKey)
         userDefaults.synchronize()
     }
     

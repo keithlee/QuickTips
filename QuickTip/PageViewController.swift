@@ -41,11 +41,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         guard orderedViewControllers.count > previousIndex else {
             return nil
         }
-        let vc = orderedViewControllers[previousIndex] as! TipViewController
-        vc.view.endEditing(false)
-        vc.billField.becomeFirstResponder()
-        
-        return vc
+        return orderedViewControllers[previousIndex]
     }
     
     func pageViewController(pageViewController: UIPageViewController,
@@ -65,11 +61,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
             return nil
         }
         
-        let vc = orderedViewControllers[nextIndex] as! TipViewController
-        vc.view.endEditing(false)
-        vc.billField.becomeFirstResponder()
-        
-        return vc
+        return orderedViewControllers[nextIndex]
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
@@ -77,9 +69,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     }
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [
-            UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TipViewController1"),
-            UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TipViewController2"),
-            UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TipViewController3"),
+            UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TipViewController"),
+            UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SettingsViewController"),
         ]
     }()
     

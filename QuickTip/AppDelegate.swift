@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             TipKeys.smallTipKey: 0.10,
             TipKeys.mediumTipKey: 0.15,
             TipKeys.largeTipKey: 0.18,
-            defaultTipKey: 1
+            defaultTipKey: 0.15
         ])
         userDefaults.synchronize()
         
