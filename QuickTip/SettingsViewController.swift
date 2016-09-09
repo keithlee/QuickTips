@@ -13,7 +13,6 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var smallTipField: UITextField!
     @IBOutlet weak var mediumTipField: UITextField!
     @IBOutlet weak var largeTipField: UITextField!
-    @IBOutlet weak var defaultTipControls: UISegmentedControl!
     
     var userDefaults = NSUserDefaults.standardUserDefaults()
     
@@ -23,7 +22,6 @@ class SettingsViewController: UIViewController {
         smallTipValue = userDefaults.doubleForKey(TipKeys.tipKey1) * 100
         mediumTipValue = userDefaults.doubleForKey(TipKeys.tipKey2) * 100
         largeTipValue = userDefaults.doubleForKey(TipKeys.tipKey3) * 100
-        defaultTipControls.selectedSegmentIndex = userDefaults.integerForKey(defaultTipKey)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -42,7 +40,6 @@ class SettingsViewController: UIViewController {
         }
         set {
             smallTipField.text = String(newValue)
-            defaultTipControls.setTitle("\(String(newValue))%", forSegmentAtIndex: 0)
         }
     }
     
@@ -52,7 +49,6 @@ class SettingsViewController: UIViewController {
         }
         set {
             mediumTipField.text = String(newValue)
-            defaultTipControls.setTitle("\(String(newValue))%", forSegmentAtIndex: 1)
         }
     }
 
@@ -62,28 +58,19 @@ class SettingsViewController: UIViewController {
         }
         set {
             largeTipField.text = String(newValue)
-            defaultTipControls.setTitle("\(String(newValue))%", forSegmentAtIndex: 2)
         }
     }
     
     @IBAction func updateMinTip(sender: AnyObject) {
         userDefaults.setDouble(smallTipValue / 100, forKey: TipKeys.tipKey1)
         userDefaults.synchronize()
-        defaultTipControls.setTitle("\(String(smallTipValue))%", forSegmentAtIndex: 0)
     }
     @IBAction func updateMediumTip(sender: AnyObject) {
         userDefaults.setDouble(mediumTipValue / 100, forKey: TipKeys.tipKey2)
         userDefaults.synchronize()
-        defaultTipControls.setTitle("\(String(mediumTipValue))%", forSegmentAtIndex: 1)
     }
     @IBAction func updateLargeTip(sender: AnyObject) {
         userDefaults.setDouble(largeTipValue / 100, forKey: TipKeys.tipKey3)
-        userDefaults.synchronize()
-        defaultTipControls.setTitle("\(String(largeTipValue))%", forSegmentAtIndex: 2)
-    }
-    
-    @IBAction func selectDefaultTip(sender: AnyObject) {
-        userDefaults.setDouble(Double(defaultTipControls.titleForSegmentAtIndex(defaultTipControls.selectedSegmentIndex)!)! / 100, forKey: defaultTipKey)
         userDefaults.synchronize()
     }
     
