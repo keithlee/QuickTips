@@ -10,18 +10,20 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    @IBOutlet weak var smallTipField: UITextField!
-    @IBOutlet weak var mediumTipField: UITextField!
-    @IBOutlet weak var largeTipField: UITextField!
+    @IBOutlet weak var tip1Field: UITextField!
+    @IBOutlet weak var tip2Field: UITextField!
+    @IBOutlet weak var tip3Field: UITextField!
+    @IBOutlet weak var themeControl: UISegmentedControl!
     
     var userDefaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        smallTipValue = userDefaults.doubleForKey(TipKeys.tipKey1) * 100
-        mediumTipValue = userDefaults.doubleForKey(TipKeys.tipKey2) * 100
-        largeTipValue = userDefaults.doubleForKey(TipKeys.tipKey3) * 100
+        tipValue1 = userDefaults.doubleForKey(TipKeys.tipKey1) * 100
+        tipValue2 = userDefaults.doubleForKey(TipKeys.tipKey2) * 100
+        tipValue3 = userDefaults.doubleForKey(TipKeys.tipKey3) * 100
+        themeControl.selectedSegmentIndex = userDefaults.objectForKey(themeKey) as! String == Theme.cool ? 0 : 1
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -34,43 +36,48 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    var smallTipValue: Double {
+    var tipValue1: Double {
         get {
-            return Double(smallTipField.text!) ?? 0
+            return Double(tip1Field.text!) ?? 0
         }
         set {
-            smallTipField.text = String(newValue)
+            tip1Field.text = String(Int(newValue))
         }
     }
     
-    var mediumTipValue: Double {
+    var tipValue2: Double {
         get {
-            return Double(mediumTipField.text!) ?? 0
+            return Double(tip2Field.text!) ?? 0
         }
         set {
-            mediumTipField.text = String(newValue)
+            tip2Field.text = String(Int(newValue))
         }
     }
 
-    var largeTipValue: Double {
+    var tipValue3: Double {
         get {
-            return Double(largeTipField.text!) ?? 0
+            return Double(tip3Field.text!) ?? 0
         }
         set {
-            largeTipField.text = String(newValue)
+            tip3Field.text = String(Int(newValue))
         }
     }
     
-    @IBAction func updateMinTip(sender: AnyObject) {
-        userDefaults.setDouble(smallTipValue / 100, forKey: TipKeys.tipKey1)
-        userDefaults.synchronize()
+    @IBAction func updateTip1(sender: AnyObject) {
+        userDefaults.setDouble(tipValue1 / 100, forKey: TipKeys.tipKey1)
     }
-    @IBAction func updateMediumTip(sender: AnyObject) {
-        userDefaults.setDouble(mediumTipValue / 100, forKey: TipKeys.tipKey2)
-        userDefaults.synchronize()
+    @IBAction func updateTip2(sender: AnyObject) {
+        userDefaults.setDouble(tipValue2 / 100, forKey: TipKeys.tipKey2)
     }
-    @IBAction func updateLargeTip(sender: AnyObject) {
-        userDefaults.setDouble(largeTipValue / 100, forKey: TipKeys.tipKey3)
+    @IBAction func updateTip3(sender: AnyObject) {
+        userDefaults.setDouble(tipValue3 / 100, forKey: TipKeys.tipKey3)
+    }
+    @IBAction func changeTheme(sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            userDefaults.setObject(Theme.cool, forKey: themeKey)
+        } else {
+            userDefaults.setObject(Theme.warm, forKey: themeKey)
+        }
         userDefaults.synchronize()
     }
     

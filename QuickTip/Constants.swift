@@ -15,4 +15,10 @@ struct TipKeys {
     static let tipKey3 = "tip3"
 }
 
+struct Theme {
+    static let warm = "warm"
+    static let cool = "cool"
+}
+
 let defaultTipKey = "defaultTip"
+let themeKey = "themeKey"

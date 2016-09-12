@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             TipKeys.tipKey1: 0.10,
             TipKeys.tipKey2: 0.15,
             TipKeys.tipKey3: 0.18,
-            defaultTipKey: 0.15
+            defaultTipKey: 0.15,
+            themeKey: Theme.cool
         ])
         userDefaults.synchronize()
         
@@ -32,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to insactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.synchronize()
     }
 
     func applicationDidEnterBackground(application: UIApplication) {

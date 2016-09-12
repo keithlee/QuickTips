@@ -27,7 +27,17 @@ class TipViewController: UIViewController {
     @IBOutlet weak var totalLabel1: UILabel!
     @IBOutlet weak var totalLabel2: UILabel!
     @IBOutlet weak var totalLabel3: UILabel!
+    @IBOutlet weak var stackView: UIStackView!
     
+    let billColor = UIColor.init(red: 255/255, green: 255/255, blue: 153/255, alpha: 0.2)
+    
+    let coolColorBlue = UIColor.init(red: 96/255, green: 239/255, blue: 248/255, alpha: 1)
+    let coolColorGreen = UIColor.init(red: 24/255, green: 234/255, blue: 166/255, alpha: 1)
+    let coolColorTurquoise = UIColor.init(red: 92/255, green: 251/255, blue: 231/255, alpha: 1)
+    
+    let warmColorYellow = UIColor.init(red: 255/255, green: 197/255, blue: 59/255, alpha: 0.8)
+    let warmColorPink = UIColor.init(red: 218/255, green: 109/255, blue: 118/255, alpha: 1)
+    let warmColorRed = UIColor.init(red: 229/255, green: 0/255, blue: 49/255, alpha: 0.8)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +51,41 @@ class TipViewController: UIViewController {
         tipLabel1.text = "%\(Int(userdefaults.doubleForKey(TipKeys.tipKey1)*100))"
         tipLabel2.text = "%\(Int(userdefaults.doubleForKey(TipKeys.tipKey2)*100))"
         tipLabel3.text = "%\(Int(userdefaults.doubleForKey(TipKeys.tipKey3)*100))"
+        
+        UIView.animateWithDuration(1.0) { [weak self] in
+            let _self = self!
+            if userdefaults.objectForKey(themeKey) as! String == Theme.warm {
+                _self.tipView1.backgroundColor = _self.warmColorYellow
+                _self.tipView2.backgroundColor = _self.warmColorPink
+                _self.tipView3.backgroundColor = _self.warmColorRed
+                for view in _self.stackView.subviews {
+                    if view.isKindOfClass(UIView) {
+                        for sub in view.subviews {
+                            if sub.isKindOfClass(UILabel) {
+                                let label = sub as! UILabel
+                                label.textColor = UIColor.blackColor()
+                            }
+                        }
+                    }
+                }
+            } else {
+                _self.tipView1.backgroundColor = _self.coolColorTurquoise
+                _self.tipView2.backgroundColor = _self.coolColorBlue
+                _self.tipView3.backgroundColor = _self.coolColorGreen
+                for view in _self.stackView.subviews {
+                    if view.isKindOfClass(UIView) {
+                        for sub in view.subviews {
+                            if sub.isKindOfClass(UILabel) {
+                                let label = sub as! UILabel
+                                label.textColor = UIColor.whiteColor()
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+        calculateTip(self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -108,8 +153,10 @@ class TipViewController: UIViewController {
     }
    
     @IBAction func calculateTip(sender: AnyObject) {
-        UIView.animateWithDuration(1.0) { [_self = self] in
-            _self.mainView.backgroundColor = UIColor.init(red: 117/255, green: 255/255, blue: 232/255, alpha: 1)
+        if billField.text != "" && self.mainView.backgroundColor != billColor {
+            UIView.animateWithDuration(1.0) { [weak self] in
+                self?.mainView.backgroundColor = self?.billColor
+            }
         }
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let tipPercent1 = userDefaults.doubleForKey(TipKeys.tipKey1)
