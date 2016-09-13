@@ -150,7 +150,7 @@ class TipViewController: UIViewController {
         billField.resignFirstResponder()
     }
     
-    func initWarm() {
+    private func initWarm() {
         self.tipView1.backgroundColor = self.warmColorYellow
         self.tipView2.backgroundColor = self.warmColorPink
         self.tipView3.backgroundColor = self.warmColorRed
@@ -166,7 +166,7 @@ class TipViewController: UIViewController {
         }
     }
     
-    func initCool() {
+    private func initCool() {
         tipView1.backgroundColor = coolColorTurquoise
         tipView2.backgroundColor = coolColorBlue
         tipView3.backgroundColor = coolColorGreen
