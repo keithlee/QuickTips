@@ -52,37 +52,11 @@ class TipViewController: UIViewController {
         tipLabel2.text = "%\(Int(userdefaults.doubleForKey(TipKeys.tipKey2)*100))"
         tipLabel3.text = "%\(Int(userdefaults.doubleForKey(TipKeys.tipKey3)*100))"
         
-        UIView.animateWithDuration(1.0) { [weak self] in
-            let _self = self!
+        UIView.animateWithDuration(1.0) {
             if userdefaults.objectForKey(themeKey) as! String == Theme.warm {
-                _self.tipView1.backgroundColor = _self.warmColorYellow
-                _self.tipView2.backgroundColor = _self.warmColorPink
-                _self.tipView3.backgroundColor = _self.warmColorRed
-                for view in _self.stackView.subviews {
-                    if view.isKindOfClass(UIView) {
-                        for sub in view.subviews {
-                            if sub.isKindOfClass(UILabel) {
-                                let label = sub as! UILabel
-                                label.textColor = UIColor.blackColor()
-                            }
-                        }
-                    }
-                }
+                self.initWarm()
             } else {
-                _self.tipView1.backgroundColor = _self.coolColorTurquoise
-                _self.tipView2.backgroundColor = _self.coolColorBlue
-                _self.tipView3.backgroundColor = _self.coolColorGreen
-                for view in _self.stackView.subviews {
-                    if view.isKindOfClass(UIView) {
-                        for sub in view.subviews {
-                            if sub.isKindOfClass(UILabel) {
-                                let label = sub as! UILabel
-                                label.textColor = UIColor.whiteColor()
-                            }
-                        }
-                    }
-                }
-                
+                self.initCool()
             }
         }
         calculateTip(self)
@@ -183,6 +157,38 @@ class TipViewController: UIViewController {
     }
     @IBAction func dismissKeyboard(sender: UITapGestureRecognizer) {
         billField.resignFirstResponder()
+    }
+    
+    func initWarm() {
+        self.tipView1.backgroundColor = self.warmColorYellow
+        self.tipView2.backgroundColor = self.warmColorPink
+        self.tipView3.backgroundColor = self.warmColorRed
+        for view in self.stackView.subviews {
+            if view.isKindOfClass(UIView) {
+                for sub in view.subviews {
+                    if sub.isKindOfClass(UILabel) {
+                        let label = sub as! UILabel
+                        label.textColor = UIColor.blackColor()
+                    }
+                }
+            }
+        }
+    }
+    
+    func initCool() {
+        tipView1.backgroundColor = coolColorTurquoise
+        tipView2.backgroundColor = coolColorBlue
+        tipView3.backgroundColor = coolColorGreen
+        for view in stackView.subviews {
+            if view.isKindOfClass(UIView) {
+                for sub in view.subviews {
+                    if sub.isKindOfClass(UILabel) {
+                        let label = sub as! UILabel
+                        label.textColor = UIColor.whiteColor()
+                    }
+                }
+            }
+        }
     }
     
     /*

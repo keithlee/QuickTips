@@ -102,15 +102,15 @@
                                                 <exclude reference="d0u-gS-Dpz"/>
                                                 <exclude reference="tSp-Sv-D6G"/>
                                                 <exclude reference="vcG-6H-pLT"/>
-                                                <exclude reference="7fG-Qw-bdd"/>
-                                                <exclude reference="VxT-Ul-szF"/>
                                                 <exclude reference="7Vc-O4-NQd"/>
                                                 <exclude reference="qOS-U2-0lf"/>
+                                                <exclude reference="7fG-Qw-bdd"/>
+                                                <exclude reference="VxT-Ul-szF"/>
                                             </mask>
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qSc-PX-rKW">
-                                        <rect key="frame" x="0.0" y="152.5" width="320" height="153"/>
+                                        <rect key="frame" x="0.0" y="152" width="320" height="153"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBy-0L-5bn">
                                                 <rect key="frame" x="285" y="16" width="27" height="31"/>
@@ -182,7 +182,7 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTv-mU-Vg2">
-                                        <rect key="frame" x="0.0" y="305.5" width="320" height="152.5"/>
+                                        <rect key="frame" x="0.0" y="305" width="320" height="152.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQA-PE-gYD">
                                                 <rect key="frame" x="267" y="97" width="45" height="47.5"/>
