@@ -20,9 +20,9 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tipValue1 = userDefaults.doubleForKey(TipKeys.tipKey1) * 100
-        tipValue2 = userDefaults.doubleForKey(TipKeys.tipKey2) * 100
-        tipValue3 = userDefaults.doubleForKey(TipKeys.tipKey3) * 100
+        tipValue1 = round(userDefaults.doubleForKey(TipKeys.tipKey1) * 100)
+        tipValue2 = round(userDefaults.doubleForKey(TipKeys.tipKey2) * 100)
+        tipValue3 = round(userDefaults.doubleForKey(TipKeys.tipKey3) * 100)
         themeControl.selectedSegmentIndex = userDefaults.objectForKey(themeKey) as! String == Theme.cool ? 0 : 1
     }
     

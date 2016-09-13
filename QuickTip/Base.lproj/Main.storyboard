@@ -253,9 +253,6 @@
                                                 <exclude reference="KCe-qp-aKW"/>
                                             </mask>
                                         </variation>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="azS-8j-xSn" appends="YES" id="IHN-N5-RS4"/>
-                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>

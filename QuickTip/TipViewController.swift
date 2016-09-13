@@ -48,9 +48,9 @@ class TipViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         let userdefaults = NSUserDefaults.standardUserDefaults()
-        tipLabel1.text = "%\(Int(userdefaults.doubleForKey(TipKeys.tipKey1)*100))"
-        tipLabel2.text = "%\(Int(userdefaults.doubleForKey(TipKeys.tipKey2)*100))"
-        tipLabel3.text = "%\(Int(userdefaults.doubleForKey(TipKeys.tipKey3)*100))"
+        tipLabel1.text = "%\(Int(round(userdefaults.doubleForKey(TipKeys.tipKey1)*100)))"
+        tipLabel2.text = "%\(Int(round(userdefaults.doubleForKey(TipKeys.tipKey2)*100)))"
+        tipLabel3.text = "%\(Int(round(userdefaults.doubleForKey(TipKeys.tipKey3)*100)))"
         
         UIView.animateWithDuration(1.0) {
             if userdefaults.objectForKey(themeKey) as! String == Theme.warm {
@@ -146,15 +146,6 @@ class TipViewController: UIViewController {
         
     }
     
-    @IBAction func tipView1Pan(recognizer: UIPanGestureRecognizer) {
-        let translation = recognizer.translationInView(self.view)
-        var percent = Int((tipLabel1.text?.stringByReplacingOccurrencesOfString("%", withString: ""))!)!
-        percent -= Int(translation.x / 2)
-        print(translation.x)
-        tipLabel1.text = "%\(percent)"
-        
-        recognizer.setTranslation(CGPointZero, inView: self.view)
-    }
     @IBAction func dismissKeyboard(sender: UITapGestureRecognizer) {
         billField.resignFirstResponder()
     }
