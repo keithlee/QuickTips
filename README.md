@@ -1,6 +1,6 @@
-# Pre-work - QuickTips
+# Pre-work - QuickTip
 
-QuickTips is a beautifully designed tip calculator application for iOS.
+QuickTip is a beautifully designed tip calculator application for iOS.
 
 Submitted by: Keith Lee
 
