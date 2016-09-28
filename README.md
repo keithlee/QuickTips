@@ -24,6 +24,7 @@ The following **additional** features are implemented:
 - [x] Three default tips and percentages are shown. Users can change the default percentage for each tip
 - [x] Beautifully animated UI with a paged view layout. Settings page is a swipe away
 - [x] Warm/cool theme
+
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
