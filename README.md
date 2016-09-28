@@ -35,9 +35,11 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Converting tips to integers for display. Dividing by 100 didn't always result in the expected value in Swift
-Coming up with a new design along with the appropriate colors to use was a challenge
-Learning Swift and how best to deal with optionals was a challenge
+Converting tips to integers for display. Dividing by 100 didn't always result in the expected value in Swift.
+
+Coming up with a new design along with the appropriate colors to use was a challenge.
+
+Learning Swift and how best to deal with optionals was a challenge.
 
 ## License
 
